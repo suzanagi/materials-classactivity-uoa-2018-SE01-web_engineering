@@ -1,0 +1,935 @@
+Started GET "/articles" for 127.0.0.1 at 2018-07-09 16:14:19 +0900
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate RAILS_ENV=development
+
+):
+  
+activerecord (5.1.6) lib/active_record/migration.rb:576:in `check_pending!'
+activerecord (5.1.6) lib/active_record/migration.rb:553:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (19.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (10.2ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateArticles (20180709071129)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "articles" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "affiliation" varchar, "contact" varchar, "phone" varchar, "title" varchar, "abstract" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20180709071129"]]
+  [1m[35m (30.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-07-09 07:14:41.910950"], ["updated_at", "2018-07-09 07:14:41.910950"]]
+  [1m[35m (10.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (10.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/articles" for 127.0.0.1 at 2018-07-09 16:14:46 +0900
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (10.1ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 2189ms (Views: 2051.0ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-09 16:16:16 +0900
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (53.2ms)
+  Rendered articles/new.html.erb within layouts/application (98.1ms)
+Completed 200 OK in 367ms (Views: 295.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-07-09 16:18:49 +0900
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"R1GkvzPkAHdmgNndAzCwldqgPI6h2WDAujf/cWqr/bk77pvu9SzM7gudmiNlC8mvE9ZDOJqRMNQoj3GanldQfA==", "article"=>{"name"=>"Yuta Nemoto", "affiliation"=>"Univ. Aizu", "contact"=>"s1240234", "phone"=>"0900000000", "title"=>"Web Engineering Ex7", "abstract"=>"This is the Exercise 7 Problem 2. Abstract of sample article."}, "commit"=>"Create Article"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO "articles" ("name", "affiliation", "contact", "phone", "title", "abstract", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Yuta Nemoto"], ["affiliation", "Univ. Aizu"], ["contact", "s1240234"], ["phone", "0900000000"], ["title", "Web Engineering Ex7"], ["abstract", "This is the Exercise 7 Problem 2. Abstract of sample article."], ["created_at", "2018-07-09 07:18:49.604697"], ["updated_at", "2018-07-09 07:18:49.604697"]]
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/1
+Completed 302 Found in 36ms (ActiveRecord: 19.5ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2018-07-09 16:18:49 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 273ms (Views: 205.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-09 16:19:04 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 238ms (Views: 192.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2018-07-09 16:19:20 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 235ms (Views: 185.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-09 16:19:30 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 240ms (Views: 187.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/1/edit" for 127.0.0.1 at 2018-07-09 16:19:31 +0900
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (3.0ms)
+  Rendered articles/edit.html.erb within layouts/application (52.0ms)
+Completed 200 OK in 292ms (Views: 243.0ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/articles/1" for 127.0.0.1 at 2018-07-09 16:20:13 +0900
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"vtepHkkML5hjQyG/DfBAHqPs6buUjbPGYIACoXNWwR6Jy4Iut7c29bEpJRQ1Rbdmidzdq0QaEqWr2stYCHMfJQ==", "article"=>{"name"=>"Yuta Nemoto", "affiliation"=>"Univ. Aizu", "contact"=>"s1240234", "phone"=>"0900000000", "title"=>"Web Engineering Ex7", "abstract"=>"This is the Exercise 7 Problem 2. Abstract of sample article.\r\nEdit it and UPDATE!"}, "commit"=>"Update Article", "id"=>"1"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  [1m[33mUPDATE "articles" SET "abstract" = ?, "updated_at" = ? WHERE "articles"."id" = ?[0m  [["abstract", "This is the Exercise 7 Problem 2. Abstract of sample article.\r\nEdit it and UPDATE!"], ["updated_at", "2018-07-09 07:20:13.373514"], ["id", 1]]
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/1
+Completed 302 Found in 39ms (ActiveRecord: 16.6ms)
+
+
+Started GET "/articles/1" for 127.0.0.1 at 2018-07-09 16:20:13 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 245ms (Views: 195.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-09 16:20:21 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 329ms (Views: 262.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-09 16:20:32 +0900
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (7.0ms)
+Completed 200 OK in 117ms (Views: 59.8ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/articles/1" for 127.0.0.1 at 2018-07-09 16:20:41 +0900
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"mJMTbHFFgKhIhikCaT24PqImOQl6ieYshDQQRZe09B6PYKjms3g9LUdvMG80fiQUEtEufv1XE/6KMuLIevoh3w==", "id"=>"1"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 1]]
+  [1m[35m (16.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 37ms (ActiveRecord: 21.1ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-09 16:20:41 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 236ms (Views: 191.6ms | ActiveRecord: 1.0ms)
+
+
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2018-07-11 16:11:58 +0900
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered C:/RailsInstaller/Ruby2.3.3/lib/ruby/gems/2.3.0/gems/railties-5.1.6/lib/rails/templates/rails/welcome/index.html.erb (12.8ms)
+Completed 200 OK in 134ms (Views: 63.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 16:15:03 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/articles" for 127.0.0.1 at 2018-07-11 16:15:16 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 566ms (Views: 494.8ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-12 23:38:19 +0900
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (6.5ms)
+Completed 200 OK in 550ms (Views: 489.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-12 23:39:33 +0900
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (43.3ms)
+  Rendered articles/new.html.erb within layouts/application (89.6ms)
+Completed 200 OK in 333ms (Views: 278.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-07-12 23:39:35 +0900
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"cOxKPwBYoWLkmn7E1BTzYQAwELvu1rgxbdKYKoMBq5caKKWRWRjXGwrcHVDoi4QYC+RsUbblM3yma6qBn6Bzbg==", "article"=>{"name"=>"", "affiliation"=>"", "contact"=>"", "phone"=>"", "title"=>"", "abstract"=>""}, "commit"=>"Create Article"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (9.6ms)
+  Rendered articles/new.html.erb within layouts/application (49.3ms)
+Completed 200 OK in 246ms (Views: 231.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-12 23:39:52 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 327ms (Views: 274.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-13 10:55:58 +0900
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 1658ms (Views: 1425.0ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-13 10:56:53 +0900
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (78.1ms)
+  Rendered articles/new.html.erb within layouts/application (171.9ms)
+Completed 200 OK in 734ms (Views: 632.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-07-13 10:58:52 +0900
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"QfXQ4pZF4vZgGsHOzCDDwndg0IVSR9q09mUG8MvFJiQudPKC8lNVJ4DmldYZhkWNovljmNVR4oTlkO4tJWsWMg==", "article"=>{"name"=>"Yuta Nemoto", "affiliation"=>"Univ. Aizu", "contact"=>"s1240234@u-aizu.ac.jp", "phone"=>"00000000000", "title"=>"Web Engineering Ex8", "abstract"=>"This is the Exercise Application of Web Engineering Ex 8."}, "commit"=>"Create Article"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (15.6ms)[0m  [1m[32mINSERT INTO "articles" ("name", "affiliation", "contact", "phone", "title", "abstract", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Yuta Nemoto"], ["affiliation", "Univ. Aizu"], ["contact", "s1240234@u-aizu.ac.jp"], ["phone", "00000000000"], ["title", "Web Engineering Ex8"], ["abstract", "This is the Exercise Application of Web Engineering Ex 8."], ["created_at", "2018-07-13 01:58:52.100333"], ["updated_at", "2018-07-13 01:58:52.100333"]]
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/2
+Completed 302 Found in 31ms (ActiveRecord: 31.2ms)
+
+
+Started GET "/articles/2" for 127.0.0.1 at 2018-07-13 10:58:52 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 484ms (Views: 361.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-13 10:58:56 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 437ms (Views: 377.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-13 11:01:27 +0900
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (15.6ms)
+  Rendered articles/new.html.erb within layouts/application (109.4ms)
+Completed 200 OK in 656ms (Views: 542.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-07-13 11:01:40 +0900
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1FjFT7VGyX80/bR1Bvtg6C83L8sWqHCufTi8s0ZI7oS72ecv0VB+rtQB4G3TXean+q6c1pG+SJ5uzVRuqObekg==", "article"=>{"name"=>"", "affiliation"=>"", "contact"=>"", "phone"=>"", "title"=>"", "abstract"=>""}, "commit"=>"Create Article"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (46.9ms)
+  Rendered articles/new.html.erb within layouts/application (203.1ms)
+Completed 200 OK in 891ms (Views: 858.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-13 11:03:56 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 562ms (Views: 456.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-13 11:04:02 +0900
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (0.0ms)
+  Rendered articles/new.html.erb within layouts/application (156.2ms)
+Completed 200 OK in 766ms (Views: 637.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-07-13 11:05:18 +0900
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5buiieQSkqqU5fMRbMnV8A/tGiwLjijSwRtoDthDhoaKOoDpgAQle3QZpwm5b1O/2nSpMYyYEOLS7oDTNu22kA==", "article"=>{"name"=>"", "affiliation"=>"", "contact"=>"", "phone"=>"", "title"=>"", "abstract"=>""}, "commit"=>"Create Article"}
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (23.0ms)
+  Rendered articles/new.html.erb within layouts/application (203.9ms)
+Completed 200 OK in 996ms (Views: 963.7ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-13 11:06:01 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 493ms (Views: 395.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/2/edit" for 127.0.0.1 at 2018-07-13 11:06:13 +0900
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (8.0ms)
+  Rendered articles/edit.html.erb within layouts/application (105.9ms)
+Completed 200 OK in 599ms (Views: 493.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/articles/2" for 127.0.0.1 at 2018-07-13 11:06:28 +0900
+Processing by ArticlesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6qTz0PJTzwjzwhl13IgvrHu5eJ8wZtR5oJscddR55eRWJCmSINE/K3PU4u2TGWH4ZSD5eUN6oFwrVFcF4QSNJg==", "article"=>{"name"=>"Yuta Nemoto", "affiliation"=>"Univ. Aizu", "contact"=>"s1240234@u-aizu.ac.jp", "phone"=>"", "title"=>"Web Engineering Ex8", "abstract"=>"This is the Exercise Application of Web Engineering Ex 8."}, "commit"=>"Update Article", "id"=>"2"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering articles/edit.html.erb within layouts/application
+  Rendered articles/_form.html.erb (13.0ms)
+  Rendered articles/edit.html.erb within layouts/application (123.9ms)
+Completed 200 OK in 654ms (Views: 621.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-13 11:06:43 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 461ms (Views: 359.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 11:27:09 +0900
+  [1m[35m (0.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 703ms (Views: 657.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-17 12:29:38 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/products"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 12:29:51 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (31.2ms)
+Completed 200 OK in 250ms (Views: 203.5ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 13:23:21 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 292ms (Views: 238.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:23:28 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (312.5ms)
+Completed 500 Internal Server Error in 461ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `product' for #<#<Class:0xa2865c8>:0xa285488>
+Did you mean?  proc):
+     6: 
+     7: <% @articles.each do |article| %>
+     8:     <div class="entry">
+     9:         <%= image_tag(product.image_url) %>
+    10:         <h3><%= product.title %></h3>
+    11:         <%= sanitize(article.abstract) %>
+    12:         <div class="nameline">
+  
+app/views/library/index.html.erb:9:in `block in _app_views_library_index_html_erb__334379945_85210500'
+app/views/library/index.html.erb:7:in `_app_views_library_index_html_erb__334379945_85210500'
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:25:19 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (312.5ms)
+Completed 500 Internal Server Error in 494ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `product' for #<#<Class:0xa2865c8>:0x9d8e208>
+Did you mean?  proc):
+     6: 
+     7: <% @articles.each do |article| %>
+     8:     <div class="entry">
+     9:         <h3><%= product.title %></h3>
+    10:         <%= sanitize(article.abstract) %>
+    11:         <div class="nameline">
+    12:             <span class="name"><%= article.name %></span>
+  
+app/views/library/index.html.erb:9:in `block in _app_views_library_index_html_erb__334379945_82605072'
+app/views/library/index.html.erb:7:in `_app_views_library_index_html_erb__334379945_82605072'
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:25:48 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 225ms (Views: 189.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:29:08 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 500 Internal Server Error in 272ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Invalid CSS after "...adding-bottom: ": expected expression (e.g. 1px, bold), was ": 0.5em;"):
+    4:     <title>Conf</title>
+    5:     <%= csrf_meta_tags %>
+    6: 
+    7:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    9:   </head>
+   10: 
+  
+app/assets/stylesheets/library.scss:8
+app/views/layouts/application.html.erb:7:in `_app_views_layouts_application_html_erb___253386695_78748548'
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:29:41 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 279ms (Views: 242.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:30:27 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 273ms (Views: 243.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:35:41 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (15.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 367ms (Views: 287.4ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:36:52 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (15.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 305ms (Views: 247.5ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:39:00 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 208ms (Views: 172.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:42:36 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 220ms (Views: 181.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:45:17 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 254ms (Views: 203.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:46:02 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (25.5ms)
+Completed 200 OK in 373ms (Views: 328.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 13:51:23 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 283ms (Views: 233.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:02:53 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (15.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (15.6ms)
+Completed 500 Internal Server Error in 407ms (ActiveRecord: 15.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `controlelr_name' for #<LibraryController:0xbcff190>
+Did you mean?  controller_name):
+     8:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+     9:   </head>
+    10: 
+    11:   <body class="<%= controller.controlelr_name %>">
+    12:     <div id="banner">
+    13:       <%= @page_title || "IEEE Conference Articles" %>
+    14:     </div>
+  
+app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb___253386695_98962872'
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:03:36 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 233ms (Views: 191.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:04:24 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 274ms (Views: 228.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:08:27 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 286ms (Views: 227.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:09:54 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (15.6ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 259ms (Views: 195.5ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:11:04 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 288ms (Views: 250.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:12:46 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (16.6ms)
+Completed 200 OK in 265ms (Views: 234.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:15:37 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 290ms (Views: 240.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:16:24 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 298ms (Views: 246.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:17:03 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 293ms (Views: 240.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:17:32 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 342ms (Views: 290.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:17:59 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 289ms (Views: 246.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:18:52 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 294ms (Views: 250.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 14:20:26 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 271ms (Views: 227.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 14:22:59 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 280ms (Views: 225.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 14:25:01 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (7.9ms)
+Completed 200 OK in 258ms (Views: 216.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 14:25:38 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 247ms (Views: 195.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 14:26:04 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 299ms (Views: 249.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 14:26:14 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 228ms (Views: 184.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/article" for 127.0.0.1 at 2018-07-17 15:12:22 +0900
+  
+ActionController::RoutingError (No route matches [GET] "/article"):
+  
+actionpack (5.1.6) lib/action_dispatch/middleware/debug_exceptions.rb:63:in `call'
+web-console (3.6.2) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.6.2) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.6.2) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.5) lib/rack/method_override.rb:22:in `call'
+rack (2.0.5) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.5) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6) lib/rails/engine.rb:522:in `call'
+puma (3.11.4) lib/puma/configuration.rb:225:in `call'
+puma (3.11.4) lib/puma/server.rb:632:in `handle_request'
+puma (3.11.4) lib/puma/server.rb:446:in `process_client'
+puma (3.11.4) lib/puma/server.rb:306:in `block in run'
+puma (3.11.4) lib/puma/thread_pool.rb:120:in `block in spawn_thread'
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 15:12:34 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 231ms (Views: 185.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-17 15:13:22 +0900
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (30.0ms)
+  Rendered articles/new.html.erb within layouts/application (72.9ms)
+Completed 200 OK in 293ms (Views: 250.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 15:14:23 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 226ms (Views: 181.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-17 15:14:35 +0900
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (4.0ms)
+  Rendered articles/new.html.erb within layouts/application (43.0ms)
+Completed 200 OK in 271ms (Views: 224.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-07-17 15:15:33 +0900
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"UeJca9xte3wlY1lej9CEzXajSkKmHr1TnwbiT0syobusYc6fX2pS9VrhaKH69UAdCxsxjoyZoTMaLuvr1bVSjQ==", "article"=>{"name"=>"Yuta Nemoto", "affiliation"=>"Univ. Aizu", "contact"=>"s1240234@u-aizu.ac.jp", "phone"=>"00000000000", "title"=>"Web Engineering Ex10", "abstract"=>"This is the Exercise Application of Web Engineering Ex 10."}, "commit"=>"Create Article"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (4.0ms)[0m  [1m[32mINSERT INTO "articles" ("name", "affiliation", "contact", "phone", "title", "abstract", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Yuta Nemoto"], ["affiliation", "Univ. Aizu"], ["contact", "s1240234@u-aizu.ac.jp"], ["phone", "00000000000"], ["title", "Web Engineering Ex10"], ["abstract", "This is the Exercise Application of Web Engineering Ex 10."], ["created_at", "2018-07-17 06:15:33.666516"], ["updated_at", "2018-07-17 06:15:33.666516"]]
+  [1m[35m (13.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/3
+Completed 302 Found in 50ms (ActiveRecord: 17.3ms)
+
+
+Started GET "/articles/3" for 127.0.0.1 at 2018-07-17 15:15:33 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 245ms (Views: 190.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 15:15:36 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 222ms (Views: 178.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 15:15:41 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 213ms (Views: 168.2ms | ActiveRecord: 1.0ms)
+
+
+Started DELETE "/articles/3" for 127.0.0.1 at 2018-07-17 15:15:43 +0900
+Processing by ArticlesController#destroy as HTML
+  Parameters: {"authenticity_token"=>"K/jtE2B1gRrKv7g6QzruA3DRsvVU3otDM8pCAXiln4vwk9/wbIkh8ARyCqVRJ8HYu8yG6Ww+lhfhXb7wJit8QQ==", "id"=>"3"}
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (3.0ms)[0m  [1m[31mDELETE FROM "articles" WHERE "articles"."id" = ?[0m  [["id", 3]]
+  [1m[35m (24.7ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles
+Completed 302 Found in 45ms (ActiveRecord: 28.7ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 15:15:43 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 277ms (Views: 199.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-17 15:15:45 +0900
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (3.0ms)
+  Rendered articles/new.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 259ms (Views: 214.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 15:15:48 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 285ms (Views: 230.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2018-07-17 15:17:28 +0900
+Processing by ArticlesController#new as HTML
+  Rendering articles/new.html.erb within layouts/application
+  Rendered articles/_form.html.erb (4.0ms)
+  Rendered articles/new.html.erb within layouts/application (44.7ms)
+Completed 200 OK in 270ms (Views: 223.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2018-07-17 15:18:15 +0900
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"kZZApawqbZJlePbeUdoxTg7Qd4ofREdgSO6F9pciSaJsFdJRLy1EGxr6xyEk//Wec2gMRjXDWwDNxoxSCaW6lA==", "article"=>{"name"=>"Yuta Nemoto", "affiliation"=>"Univ. Aizu", "contact"=>"s1240234@u-aizu.ac.jp", "phone"=>"00000000000", "title"=>"Web Engineering Ex10", "abstract"=>"This is the Exercise Application of Web Engineering Ex 10."}, "commit"=>"Create Article"}
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (5.0ms)[0m  [1m[32mINSERT INTO "articles" ("name", "affiliation", "contact", "phone", "title", "abstract", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?, ?, ?)[0m  [["name", "Yuta Nemoto"], ["affiliation", "Univ. Aizu"], ["contact", "s1240234@u-aizu.ac.jp"], ["phone", "00000000000"], ["title", "Web Engineering Ex10"], ["abstract", "This is the Exercise Application of Web Engineering Ex 10."], ["created_at", "2018-07-17 06:18:15.486359"], ["updated_at", "2018-07-17 06:18:15.486359"]]
+  [1m[35m (16.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/articles/4
+Completed 302 Found in 57ms (ActiveRecord: 22.0ms)
+
+
+Started GET "/articles/4" for 127.0.0.1 at 2018-07-17 15:18:15 +0900
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mArticle Load (2.0ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering articles/show.html.erb within layouts/application
+  Rendered articles/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 316ms (Views: 178.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2018-07-17 15:18:20 +0900
+Processing by ArticlesController#index as HTML
+  Rendering articles/index.html.erb within layouts/application
+  [1m[36mArticle Load (1.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 390ms (Views: 294.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-17 15:18:29 +0900
+Processing by LibraryController#index as HTML
+  Rendering library/index.html.erb within layouts/application
+  [1m[36mArticle Load (0.0ms)[0m  [1m[34mSELECT "articles".* FROM "articles" ORDER BY "articles"."title" ASC[0m
+  Rendered library/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 231ms (Views: 188.0ms | ActiveRecord: 0.0ms)
+
+

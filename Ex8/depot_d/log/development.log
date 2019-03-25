@@ -1,0 +1,462 @@
+  [1m[35m (93.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (31.3ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateProducts (20160330000001)
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mCREATE TABLE "products" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "image_url" varchar, "price" decimal(8,2), "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20160330000001"]]
+  [1m[35m (31.3ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.0ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2018-07-11 04:45:14.144215"], ["updated_at", "2018-07-11 04:45:14.144215"]]
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Started GET "/" for 127.0.0.1 at 2018-07-11 13:45:45 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by StoreController#index as HTML
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 2719ms (Views: 2642.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 13:48:33 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 312ms (Views: 261.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-07-11 13:48:42 +0900
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (78.1ms)
+  Rendered products/new.html.erb within layouts/application (125.0ms)
+Completed 200 OK in 422ms (Views: 357.5ms | ActiveRecord: 15.6ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 13:48:46 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 297ms (Views: 251.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-11 13:48:51 +0900
+Processing by StoreController#index as HTML
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 328ms (Views: 266.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 14:05:15 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 656ms (Views: 589.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-07-11 14:05:34 +0900
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (46.9ms)
+  Rendered products/new.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 328ms (Views: 268.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-07-11 14:37:05 +0900
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L+HtO8gdeV+NwLcvtnsrryK8YJE+RRJ0ukOZTT9vbU1cyXN7YLMd4FiqhqyJt0cnoSBfRJ+OSKVEcKmKNHCBRA==", "product"=>{"title"=>"Tokyo", "description"=>"The Capital of Japan.", "image_url"=>"https://www.japantimes.co.jp/wp-content/uploads/2017/10/n-tokyo-a-20171013.jpg", "price"=>"1850000000000000"}, "commit"=>"Create Product"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? LIMIT ?[0m  [["title", "Tokyo"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (0.0ms)
+  Rendered products/new.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 344ms (Views: 290.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-07-11 14:37:18 +0900
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9yPpzdbmQVH6datoSLxKe2RAQ4d8sZ9qKeCaIpv5j9chJdF1a7FecGuMH8ZV3K/mhQf5VBDiTabPmohVrYO+PA==", "product"=>{"title"=>"Tokyo City", "description"=>"The Capital of Japan.", "image_url"=>"https://www.japantimes.co.jp/wp-content/uploads/2017/10/n-tokyo-a-20171013.jpg", "price"=>"1850000000000000"}, "commit"=>"Create Product"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? LIMIT ?[0m  [["title", "Tokyo City"], ["LIMIT", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Tokyo City"], ["description", "The Capital of Japan."], ["image_url", "https://www.japantimes.co.jp/wp-content/uploads/2017/10/n-tokyo-a-20171013.jpg"], ["price", 1.85e+15], ["created_at", "2018-07-11 05:37:18.296646"], ["updated_at", "2018-07-11 05:37:18.296646"]]
+  [1m[35m (31.2ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/1
+Completed 302 Found in 47ms (ActiveRecord: 31.2ms)
+
+
+Started GET "/products/1" for 127.0.0.1 at 2018-07-11 14:37:18 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 235ms (Views: 185.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 14:37:21 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 234ms (Views: 197.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-07-11 14:37:35 +0900
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (15.6ms)
+  Rendered products/new.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 266ms (Views: 227.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-07-11 14:40:06 +0900
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JWrOklxwEEFFlDP4tO1P84NgWJrdgoP12w0N7MPDR35WQlDS9N50/pD+AnuLISN7APxnT3xJ2SQlPj0ryNyrdw==", "product"=>{"title"=>"University of Aizu", "description"=>"University in Aizu. Organization researching computer technologies.", "image_url"=>"https://www.u-aizu.ac.jp/img/header/img_brand_logo.svg", "price"=>"5860000000"}, "commit"=>"Create Product"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? LIMIT ?[0m  [["title", "University of Aizu"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (0.0ms)
+  Rendered products/new.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 250ms (Views: 239.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-07-11 14:41:08 +0900
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"u4rD1NqjTOxnpJ2eNSLwJ1rBQsaVZ+g/92+TeKGfHRltjPtsZ/RTzfZdKTAoQhW6u4b4Ffk0OvMRFYEPl+Us8g==", "product"=>{"title"=>"University of Aizu", "description"=>"University in Aizu. Organization researching computer technologies.", "image_url"=>"https://www.u-aizhttp://ebiz.u-aizu.ac.jp/conference/WEIE2015/UoA.JPG", "price"=>"5860000000"}, "commit"=>"Create Product"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? LIMIT ?[0m  [["title", "University of Aizu"], ["LIMIT", 1]]
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "University of Aizu"], ["description", "University in Aizu. Organization researching computer technologies."], ["image_url", "https://www.u-aizhttp://ebiz.u-aizu.ac.jp/conference/WEIE2015/UoA.JPG"], ["price", 5860000000.0], ["created_at", "2018-07-11 05:41:09.024244"], ["updated_at", "2018-07-11 05:41:09.024244"]]
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/2
+Completed 302 Found in 16ms (ActiveRecord: 15.6ms)
+
+
+Started GET "/products/2" for 127.0.0.1 at 2018-07-11 14:41:09 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 250ms (Views: 193.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 14:41:12 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 234ms (Views: 187.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-11 14:41:23 +0900
+Processing by StoreController#index as HTML
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 250ms (Views: 195.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 15:14:12 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 282ms (Views: 227.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-07-11 15:14:14 +0900
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (0.0ms)
+  Rendered products/new.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 281ms (Views: 244.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-07-11 15:14:50 +0900
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WupfB3UJ5IxF/FMmJRNKIQtzTXPjb1dQoj3QHfUnpnkpwsFH3aeAM5CWYqUa3yapiO9ypkKkDYFcDuDa/jhKcA==", "product"=>{"title"=>"Aizuwakamatsu City", "description"=>"A city in the Fukushima prefecture.", "image_url"=>"", "price"=>"1300000"}, "commit"=>"Create Product"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? LIMIT ?[0m  [["title", "Aizuwakamatsu City"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (0.0ms)
+  Rendered products/new.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 328ms (Views: 310.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 15:14:59 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (15.6ms)
+Completed 200 OK in 281ms (Views: 213.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-07-11 15:25:46 +0900
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (15.6ms)
+  Rendered products/new.html.erb within layouts/application (46.9ms)
+Completed 200 OK in 265ms (Views: 219.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 15:26:16 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 219ms (Views: 188.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-11 15:26:28 +0900
+Processing by StoreController#index as HTML
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 266ms (Views: 213.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 15:30:10 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 267ms (Views: 218.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-07-11 15:30:17 +0900
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (5.0ms)
+  Rendered products/new.html.erb within layouts/application (51.0ms)
+Completed 200 OK in 307ms (Views: 261.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-07-11 15:31:43 +0900
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"rQhDXZFBzvr/YBBivzP0GrLqSoWQ0i6qwYtiIpUu8zveIN0dOe+qRSoKIeGA/5iSMXZ1UDEZdHs/uFLlnjEfMg==", "product"=>{"title"=>"Web Engineering Ex8", "description"=>"This is the Exercise of Web Engineering.\r\ns1240234 Yuta Nemoto", "image_url"=>"http://web-int.u-aizu.ac.jp/~vkluev/courses/webengineering/images/logo.jpg", "price"=>"150"}, "commit"=>"Create Product"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? LIMIT ?[0m  [["title", "Web Engineering Ex8"], ["LIMIT", 1]]
+  [1m[35mSQL (2.0ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Web Engineering Ex8"], ["description", "This is the Exercise of Web Engineering.\r\ns1240234 Yuta Nemoto"], ["image_url", "http://web-int.u-aizu.ac.jp/~vkluev/courses/webengineering/images/logo.jpg"], ["price", 150.0], ["created_at", "2018-07-11 06:31:43.831734"], ["updated_at", "2018-07-11 06:31:43.831734"]]
+  [1m[35m (9.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/3
+Completed 302 Found in 24ms (ActiveRecord: 11.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2018-07-11 15:31:43 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 230ms (Views: 187.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 15:31:54 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 235ms (Views: 193.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-07-11 15:32:01 +0900
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (3.0ms)
+  Rendered products/new.html.erb within layouts/application (45.0ms)
+Completed 200 OK in 274ms (Views: 234.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-07-11 15:32:13 +0900
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"znkZC5tGVWwXh/5sEMXe2chbZiazEquBvbns0ZoBfeC9UYdLM+gx08Ltz+8vCbJRS8dZ8xLZ8VBDitwWkR6R6Q==", "product"=>{"title"=>"Web", "description"=>"", "image_url"=>"", "price"=>""}, "commit"=>"Create Product"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? LIMIT ?[0m  [["title", "Web"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (4.0ms)
+  Rendered products/new.html.erb within layouts/application (44.0ms)
+Completed 200 OK in 237ms (Views: 226.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 15:32:42 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 239ms (Views: 199.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/3/edit" for 127.0.0.1 at 2018-07-11 15:33:40 +0900
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (3.0ms)
+  Rendered products/edit.html.erb within layouts/application (46.0ms)
+Completed 200 OK in 271ms (Views: 225.5ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/products/3" for 127.0.0.1 at 2018-07-11 15:33:55 +0900
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i0/L3eMVQvCYsFvwKjiriCDROPYO7ZdoGQc9IIs5PZIhQJIfJH50YbCyTNsp/bmgS92j460sow4OSxDDr7dcuA==", "product"=>{"title"=>"Web", "description"=>"This is the Exercise of Web Engineering.\r\ns1240234 Yuta Nemoto", "image_url"=>"http://web-int.u-aizu.ac.jp/~vkluev/courses/webengineering/images/logo.jpg", "price"=>"0"}, "commit"=>"Update Product", "id"=>"3"}
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? AND ("products"."id" != ?) LIMIT ?[0m  [["title", "Web"], ["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (4.0ms)
+  Rendered products/edit.html.erb within layouts/application (43.5ms)
+Completed 200 OK in 244ms (Views: 230.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-11 15:34:13 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 229ms (Views: 188.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-07-11 15:34:25 +0900
+Processing by StoreController#index as HTML
+  Rendering store/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products" ORDER BY "products"."title" ASC[0m
+  Rendered store/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 231ms (Views: 189.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-14 00:49:29 +0900
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (51.4ms)
+Completed 200 OK in 731ms (Views: 647.1ms | ActiveRecord: 11.0ms)
+
+
+Started GET "/products/3" for 127.0.0.1 at 2018-07-14 00:50:20 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mProduct Load (3.5ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (0.0ms)
+Completed 200 OK in 240ms (Views: 183.9ms | ActiveRecord: 3.5ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-14 00:50:27 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 260ms (Views: 213.5ms | ActiveRecord: 0.0ms)
+
+
+Started DELETE "/products/3" for 127.0.0.1 at 2018-07-14 00:50:31 +0900
+Processing by ProductsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gtN/oFDhb2zH6xw3QkDeuKLFyl+K/0dCVUr39HDZSsL1QfcoA5sNrzR9eAurd/1RAPPBL9Ss/JRNCiRhBOJMlA==", "id"=>"3"}
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (10.1ms)[0m  [1m[31mDELETE FROM "products" WHERE "products"."id" = ?[0m  [["id", 3]]
+  [1m[35m (20.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products
+Completed 302 Found in 30ms (ActiveRecord: 30.1ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-14 00:50:31 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 261ms (Views: 215.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/products/new" for 127.0.0.1 at 2018-07-14 00:50:33 +0900
+Processing by ProductsController#new as HTML
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (62.1ms)
+  Rendered products/new.html.erb within layouts/application (119.3ms)
+Completed 200 OK in 360ms (Views: 317.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-07-14 00:53:30 +0900
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5LaTjIw/DlQPkPiZnBBTYpdLQsbFgHmvVgGOfKc43dOTJBsE30Vsl/wGnKV1J3CLNX1JtpvTwnlOQV3p0wPbhQ==", "product"=>{"title"=>"", "description"=>"", "image_url"=>"", "price"=>""}, "commit"=>"Create Product"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (0.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? LIMIT ?[0m  [["title", ""], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering products/new.html.erb within layouts/application
+  Rendered products/_form.html.erb (5.0ms)
+  Rendered products/new.html.erb within layouts/application (54.0ms)
+Completed 200 OK in 327ms (Views: 280.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/products" for 127.0.0.1 at 2018-07-14 00:55:17 +0900
+Processing by ProductsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Eu1GrMpEKVx4jxKBTzz3MkS1hBxdnycaxZBRw148RWplf84kmT5Ln4sZdr2mC9Tb5oOPbAPMnMzd0IJWKgdDPA==", "product"=>{"title"=>"Web Engineering Ex8", "description"=>"This is the Web Engineering Exercise 8 problem 1.\r\ns1240234 Yuta Nemoto", "image_url"=>"http://web-int.u-aizu.ac.jp/~vkluev/courses/webengineering/images/logo.jpg", "price"=>"10000"}, "commit"=>"Create Product"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? LIMIT ?[0m  [["title", "Web Engineering Ex8"], ["LIMIT", 1]]
+  [1m[35mSQL (3.0ms)[0m  [1m[32mINSERT INTO "products" ("title", "description", "image_url", "price", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "Web Engineering Ex8"], ["description", "This is the Web Engineering Exercise 8 problem 1.\r\ns1240234 Yuta Nemoto"], ["image_url", "http://web-int.u-aizu.ac.jp/~vkluev/courses/webengineering/images/logo.jpg"], ["price", 10000.0], ["created_at", "2018-07-13 15:55:17.864191"], ["updated_at", "2018-07-13 15:55:17.864191"]]
+  [1m[35m (15.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/products/4
+Completed 302 Found in 42ms (ActiveRecord: 19.6ms)
+
+
+Started GET "/products/4" for 127.0.0.1 at 2018-07-14 00:55:17 +0900
+Processing by ProductsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering products/show.html.erb within layouts/application
+  Rendered products/show.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 272ms (Views: 221.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-14 00:57:16 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 242ms (Views: 196.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/products/4/edit" for 127.0.0.1 at 2018-07-14 00:57:24 +0900
+Processing by ProductsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mProduct Load (0.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (4.0ms)
+  Rendered products/edit.html.erb within layouts/application (55.0ms)
+Completed 200 OK in 301ms (Views: 252.3ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/products/4" for 127.0.0.1 at 2018-07-14 00:57:45 +0900
+Processing by ProductsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"NhXb+1CgeOtHrPHPFfonX4GE8JL272Q4hBAXcq1LJG9nAUCoLNHjXpI9r4t7m/tQsAT4HlbToN25oHVe8/71ow==", "product"=>{"title"=>"Web Engineering Ex8", "description"=>"This is the Web Engineering Exercise 8 problem 1.\r\ns1240234 Yuta Nemoto", "image_url"=>"", "price"=>"0"}, "commit"=>"Update Product", "id"=>"4"}
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT  "products".* FROM "products" WHERE "products"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mProduct Exists (1.0ms)[0m  [1m[34mSELECT  1 AS one FROM "products" WHERE "products"."title" = ? AND ("products"."id" != ?) LIMIT ?[0m  [["title", "Web Engineering Ex8"], ["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  Rendering products/edit.html.erb within layouts/application
+  Rendered products/_form.html.erb (5.0ms)
+  Rendered products/edit.html.erb within layouts/application (57.0ms)
+Completed 200 OK in 297ms (Views: 275.6ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/products" for 127.0.0.1 at 2018-07-14 00:57:52 +0900
+Processing by ProductsController#index as HTML
+  Rendering products/index.html.erb within layouts/application
+  [1m[36mProduct Load (1.0ms)[0m  [1m[34mSELECT "products".* FROM "products"[0m
+  Rendered products/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 249ms (Views: 203.3ms | ActiveRecord: 1.0ms)
+
+

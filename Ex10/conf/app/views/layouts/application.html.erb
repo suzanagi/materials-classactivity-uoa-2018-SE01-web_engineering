@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>IEEE Conference Website</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'true' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="<%= controller.controller_name %>">
+    <div id="banner">
+      <%= @page_title || "IEEE Conference Articles" %>
+    </div>
+    <div class="columns">
+ 
+        <div class="main">
+            <%= yield %>
+        </div>
+    </div>
+  </body>
+</html>
